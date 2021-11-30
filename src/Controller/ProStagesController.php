@@ -13,7 +13,8 @@ class ProStagesController extends AbstractController
      */
     public function index(): Response
     {
-        return new Response ('<html><body><h1> Bienvenue sur la page d\'accueil de Prostages </h1></body></html>');
+        //return new Response ('<html><body><h1> Bienvenue sur la page d\'accueil de Prostages </h1></body></html>');
+		return $this->render('pro_stages/index.html.twig',['controller_name'=>'Accueil',]);
     }
 	
 	/**
@@ -21,7 +22,8 @@ class ProStagesController extends AbstractController
      */
     public function afficherEntreprises(): Response
     {
-        return new Response ('<html><body><h1> Cette page affichera la liste des entreprises proposant un stage </h1></body></html>');
+        //return new Response ('<html><body><h1> Cette page affichera la liste des entreprises proposant un stage </h1></body></html>');
+		return $this->render('pro_stages/entreprises.html.twig',['controller_name'=>'Entreprises',]);
     }
 	
 	/**
