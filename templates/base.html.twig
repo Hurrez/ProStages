@@ -25,9 +25,10 @@
 		<div class="example-wrapper">
 			{% block titre %}
 				<h1>Bonjour vous êtes sur la page {{ controller_name }}! </h1>
-				<img src="logo_large.png">
+				<img src="{{ asset('/Logo/logo_small.png') }}">
+				
 			{% endblock %}
-	
+			
 			Pages :
 			<ul>
 				<li><a href="{{path('pro_stages_entreprises')}}">Entreprises</a></li>
