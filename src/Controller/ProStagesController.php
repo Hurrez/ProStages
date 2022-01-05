@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Entreprise;
 
 class ProStagesController extends AbstractController
 {
@@ -23,7 +24,9 @@ class ProStagesController extends AbstractController
     public function afficherEntreprises(): Response
     {
         //return new Response ('<html><body><h1> Cette page affichera la liste des entreprises proposant un stage </h1></body></html>');
-		return $this->render('pro_stages/entreprises.html.twig',['controller_name'=>'Entreprises',]);
+		$repositoryEntreprise=$this->getDoctrine()->getRepository(Entreprise::class);
+        $entreprises=$repositoryEntreprise->findAll();
+        return $this->render('pro_stages/entreprises.html.twig',['controller_name'=>'Entreprises','entreprises'=>$entreprises]);
     }
 	
 	/**

@@ -33,15 +33,21 @@ class AppFixtures extends Fixture
             $entreprise->setNom($faker->company);
             $entreprise->setAdresse($faker->address);
             $entreprise->setActivite($faker->realText($maxNbChars=35,$indexSize=2));
-            $entreprise->setSiteweb($faker->url);
+            $entreprise->setSiteweb($faker->url($maxNbChars=60));
+            $entreprises[]=$entreprise;
             $manager->persist($entreprise);
         }
 
         //Création stages
         $nombreStages=30;
-        for($i=1;$i<=$nombreEntreprises;$i++)
+        for($i=1;$i<=$nombreStages;$i++)
         {
-            
+            $stage = new Stage();
+            $stage->setTitre($faker->realText($maxNbChars=25,$indexSize=2));
+            $stage->setMission($faker->realText($maxNbChars=150,$indexSize=2));
+            $stage->setEmail($faker->email());
+            $stage->setEntreprise($entreprises[1]);
+            $manager->persist($stage);
         }
 
         //envoyer en bd
