@@ -1,3 +1,10 @@
 {% extends 'base.html.twig' %}
 
 
+{% block body %}
+    <center><h1>Bonjour vous êtes sur la page {{ controller_name }} ! </h1></center>
+    {% for stage in stages %}
+        <a href="{{path('pro_stages_stage',{id:stage.id})}}"><p>{{stage.titre}}</p></a>
+        <br>
+    {% endfor %}
+{% endblock %}

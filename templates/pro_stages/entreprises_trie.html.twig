@@ -3,7 +3,7 @@
 
 {% block body %}
     {% for stage in entreprise.stages %}
-         <a href="{{path('pro_stages_stage_entreprise',{idE:entreprise.id,idS:stage.id})}}"><p>{{stage.titre}}</p></a>
+         <a href="{{path('pro_stages_entreprise_stage',{idE:entreprise.id,idS:stage.id})}}"><p>{{stage.titre}}</p></a>
         <br>
     {% else %}
         <center><h1> Pas de stage </h1></center>
