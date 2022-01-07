@@ -1,2 +1,12 @@
 {% extends 'base.html.twig' %}
 
+{% block body %}
+    <html>
+        <body>
+            <h1> Titre : {{ stage.titre }} </h1>
+            <h1> Mission :  {{ stage.mission }} </h1>
+            <h1> Email : {{ stage.email }} </h1>
+            <h1> Entreprise : {{ stage.entreprise.nom }} </h1>
+        </body>
+    </html>
+{% endblock %}

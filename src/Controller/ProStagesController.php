@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Entreprise;
 use App\Entity\Stage;
+use App\Entity\Formation;
 
 class ProStagesController extends AbstractController
 {
@@ -17,7 +18,7 @@ class ProStagesController extends AbstractController
     {
         $repositoryStage=$this->getDoctrine()->getRepository(Stage::class);
         $stages=$repositoryStage->findall();
-		return $this->render('pro_stages/accueil.html.twig',['controller_name'=>'Accueil','stages'=>$stages]);
+		    return $this->render('pro_stages/accueil.html.twig',['controller_name'=>'Accueil','stages'=>$stages]);
     }
 	
     /**
@@ -27,7 +28,7 @@ class ProStagesController extends AbstractController
     {
         $repositoryStage=$this->getDoctrine()->getRepository(Stage::class);
         $stage=$repositoryStage->find($id);
-		return $this->render('pro_stages/stages.html.twig',['stage'=>$stage,]);
+		    return $this->render('pro_stages/stages.html.twig',['stage'=>$stage,]);
     }
 
 	/**
@@ -35,8 +36,8 @@ class ProStagesController extends AbstractController
      */
     public function afficherEntreprises(): Response
     {
-		$repositoryEntreprise=$this->getDoctrine()->getRepository(Entreprise::class);
-        $entreprises=$repositoryEntreprise->findAll();
+		    $repositoryEntreprises=$this->getDoctrine()->getRepository(Entreprise::class);
+        $entreprises=$repositoryEntreprises->findAll();
         return $this->render('pro_stages/entreprises.html.twig',['controller_name'=>'Entreprises','entreprises'=>$entreprises]);
     }
 
@@ -45,7 +46,7 @@ class ProStagesController extends AbstractController
      */
     public function triParEntreprises($id): Response
     {
-		$repositoryEntreprise=$this->getDoctrine()->getRepository(Entreprise::class);
+		    $repositoryEntreprise=$this->getDoctrine()->getRepository(Entreprise::class);
         $entreprise=$repositoryEntreprise->find($id);
         return $this->render('pro_stages/entreprises_trie.html.twig',['controller_name'=>'Trie par l\'entreprise : ','entreprise'=>$entreprise]);
     }
@@ -57,7 +58,7 @@ class ProStagesController extends AbstractController
     {
         $repositoryStage=$this->getDoctrine()->getRepository(Stage::class);
         $stage=$repositoryStage->find($idS);
-		return $this->render('pro_stages/stage_Entreprise.html.twig',['stage'=>$stage,]);
+		    return $this->render('pro_stages/stage_Entreprise.html.twig',['stage'=>$stage,]);
     }
 
 	/**
@@ -65,7 +66,9 @@ class ProStagesController extends AbstractController
      */
     public function afficherFormations(): Response
     {
-		return $this->render('pro_stages/formations.html.twig',['controller_name'=>'Formations',]);
+      $repositoryFormations=$this->getDoctrine()->getRepository(Formation::class);
+      $formations=$repositoryFormations->findAll();
+		  return $this->render('pro_stages/formations.html.twig',['controller_name'=>'Formations','formations'=>$formations]);
     }
 
     /**
@@ -73,7 +76,9 @@ class ProStagesController extends AbstractController
      */
     public function triParFormations($id): Response
     {
-		return $this->render('pro_stages/formations_trie.html.twig',['controller_name'=>'Formations',]);
+      $repositoryFormation=$this->getDoctrine()->getRepository(Formation::class);
+      $formation=$repositoryFormation->find($id);
+	  	return $this->render('pro_stages/formations_trie.html.twig',['controller_name'=>'Formations','formation'=>$formation]);
     }
 	
 	/**
@@ -81,7 +86,9 @@ class ProStagesController extends AbstractController
      */
     public function afficherStageFormation($idF,$idS): Response
     {
-		return $this->render('pro_stages/stage_Formation.html.twig',['controller_name'=>'Formations',]);
+      $repositoryStage=$this->getDoctrine()->getRepository(Stage::class);
+      $stage=$repositoryStage->find($idS);
+	  	return $this->render('pro_stages/stage_Formation.html.twig',['controller_name'=>'Formations','stage'=>$stage,]);
     }
     
 }

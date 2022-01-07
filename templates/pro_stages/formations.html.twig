@@ -1,2 +1,8 @@
 {% extends 'base.html.twig' %}
 
+{% block body %}
+    {% for formation in formations %}
+        <a href="{{path('pro_stages_formations_trie',{id:formation.id})}}"><p>{{formation.nomLong}}</p></a>
+        <br>
+    {% endfor %}
+{% endblock %}
