@@ -14,8 +14,9 @@
         {% endblock %}
     </head>
     <body>
-		
-		
+		{% block tête %}
+			<center><a href="{{path('pro_stages_accueil')}}"><img src="{{ asset('/Logo/logo_small.png') }}" style="align:middle;"></a></center>
+		{% endblock %}
         {% block body %}
 		<style>
 			.example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
@@ -25,15 +26,12 @@
 		<div class="example-wrapper">
 			{% block titre %}
 				<h1>Bonjour vous êtes sur la page {{ controller_name }}! </h1>
-				<img src="{{ asset('/Logo/logo_small.png') }}">
-				
 			{% endblock %}
 			
 			Pages :
 			<ul>
-				<li><a href="{{path('pro_stages_entreprises')}}">Entreprises</a></li>
-				<li><a href="{{path('pro_stages_stage',{id:5})}}">Stages</</a></code></li>
-				<li><a href="{{path('pro_stages_formations')}}">Formations</</a></code></li>
+				<li><a href="{{path('pro_stages_entreprises')}}">Trie par entreprises</a></li>
+				<li><a href="{{path('pro_stages_formations')}}">Trie par formations</</a></code></li>
 			</ul>
 		</div>
 		{% endblock %}

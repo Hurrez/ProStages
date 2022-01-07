@@ -1,2 +1,9 @@
 {% extends 'base.html.twig' %}
 
+
+{% block body %}
+    {% for entreprise in entreprises %}
+        <a href="{{path('pro_stages_entreprises_trie',{id:entreprise.id})}}"><p>{{entreprise.nom}}</p></a>
+        <br>
+    {% endfor %}
+{% endblock %}
