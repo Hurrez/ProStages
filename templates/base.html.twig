@@ -15,10 +15,10 @@
     </head>
     <body>
 		{% block tête %}
-			<center><a href="{{path('pro_stages_accueil')}}"><img src="{{ asset('/Logo/logo_small.png') }}" style="align:middle;"></a></center>
+			<center><a href="{{path('pro_stages_accueil')}}"><img src="{{ asset('/Logo/logo_small.png') }}"></a></center>
 		{% endblock %}
 		{% block nav %}
-			<left><a href="{{path('pro_stages_entreprises')}}">Trie par entreprises</a></left><right><a href="{{path('pro_stages_formations')}}">Trie par formations</a></right>
+			<left><a href="{{path('pro_stages_entreprises')}}">Tri par entreprises</a></left><right><a href="{{path('pro_stages_formations')}}">Tri par formations</a></right>
 		{% endblock %}
         {% block body %}
 		<style>
