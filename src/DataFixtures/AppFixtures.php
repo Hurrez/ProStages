@@ -21,7 +21,8 @@ class AppFixtures extends Fixture
         {
             $formation = new Formation();
             $formation->setNomCourt($faker->realText($maxNbChars=15,$indexSize=2));
-            $formation->setNomLong($faker->realText($maxNbChars=50,$indexSize=2));       
+            $formation->setNomLong($faker->realText($maxNbChars=50,$indexSize=2));
+            $formations[]=$formation;    
             $manager->persist($formation);
         }
         
@@ -33,20 +34,21 @@ class AppFixtures extends Fixture
             $entreprise->setNom($faker->company);
             $entreprise->setAdresse($faker->address);
             $entreprise->setActivite($faker->realText($maxNbChars=35,$indexSize=2));
-            $entreprise->setSiteweb($faker->url($maxNbChars=60));
+            $entreprise->setSiteweb($faker->url());
             $entreprises[]=$entreprise;
             $manager->persist($entreprise);
         }
 
         //Création stages
-        $nombreStages=30;
+        $nombreStages=50;
         for($i=1;$i<=$nombreStages;$i++)
         {
             $stage = new Stage();
             $stage->setTitre($faker->realText($maxNbChars=25,$indexSize=2));
             $stage->setMission($faker->realText($maxNbChars=150,$indexSize=2));
             $stage->setEmail($faker->email());
-            $stage->setEntreprise($entreprises[1]);
+            $stage->setEntreprise($entreprises[$faker->numberBetween($min=0,$max=count($entreprises)-1)]);
+            $stage->addFormation($formations[$faker->numberBetween($min=0,$max=count($formations)-1)]);
             $manager->persist($stage);
         }
 
