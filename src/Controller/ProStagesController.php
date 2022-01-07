@@ -58,7 +58,7 @@ class ProStagesController extends AbstractController
     {
         $repositoryStage=$this->getDoctrine()->getRepository(Stage::class);
         $stage=$repositoryStage->find($idS);
-		    return $this->render('pro_stages/stage_Entreprise.html.twig',['controller_name'=>'page du stage :'.$id,'stage'=>$stage,]);
+		    return $this->render('pro_stages/stage_Entreprise.html.twig',['controller_name'=>'page du stage :'.$idS,'stage'=>$stage,]);
     }
 
   	/**
@@ -78,7 +78,7 @@ class ProStagesController extends AbstractController
     {
       $repositoryFormation=$this->getDoctrine()->getRepository(Formation::class);
       $formation=$repositoryFormation->find($id);
-	  	return $this->render('pro_stages/formations_trie.html.twig',['controller_name'=>'stage de formations : '.$id,,'formation'=>$formation]);
+	  	return $this->render('pro_stages/formations_trie.html.twig',['controller_name'=>'stage de formations : '.$id,'formation'=>$formation]);
     }
 	
 	  /**
@@ -88,7 +88,7 @@ class ProStagesController extends AbstractController
     {
       $repositoryStage=$this->getDoctrine()->getRepository(Stage::class);
       $stage=$repositoryStage->find($idS);
-	  	return $this->render('pro_stages/stage_Formation.html.twig',['controller_name'=>'page du stage :'.$id,'stage'=>$stage,]);
+	  	return $this->render('pro_stages/stage_Formation.html.twig',['controller_name'=>'page du stage :'.$idS,'stage'=>$stage,]);
     }
     
 }
