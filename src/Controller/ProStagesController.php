@@ -42,7 +42,7 @@ class ProStagesController extends AbstractController
     }
 
     /**
-     * @Route("/entreprises/{id}", name="pro_stages_entreprises_trie")
+     * @Route("/entreprise/{id}", name="pro_stages_entreprises_trie")
      */
     public function triParEntreprises($id): Response
     {
@@ -72,7 +72,7 @@ class ProStagesController extends AbstractController
     }
 
     /**
-     * @Route("/formations/{id}", name="pro_stages_formations_trie")
+     * @Route("/formation/{id}", name="pro_stages_formations_trie")
      */
     public function triParFormations($id): Response
     {
@@ -82,7 +82,7 @@ class ProStagesController extends AbstractController
     }
 	
 	  /**
-     * @Route("/formations/{idF}/stage/{idS}", name="pro_stages_formation_stage")
+     * @Route("/formation/{idF}/stage/{idS}", name="pro_stages_formation_stage")
      */
     public function afficherStageFormation($idF,$idS): Response
     {
