@@ -35,7 +35,7 @@ class Entreprise
     private $activite;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=150)
      */
     private $siteweb;
 

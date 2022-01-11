@@ -15,7 +15,7 @@ class AppFixtures extends Fixture
         //Création d'un générateur de données faker
         $faker = \Faker\Factory::create('fr_FR');
         $tableauFormationsLong = array("DUT Informatique","DUT Gestion Entreprise Administration","Licence Prog Avancée","BTS Electronique","Licence Pro Numérique");
-        $tableauFormationsCourt = array("Info","GEA","LP Prog Avancée","Electronique","LP Num");
+        $tableauFormationsCourt = array("Info","GEA","Prog Avancée","Electronique","LP Num");
 
         //Création formations
         $nombreFormations=5;
@@ -51,10 +51,12 @@ class AppFixtures extends Fixture
             $stage->setMission($faker->realText($maxNbChars=150,$indexSize=2));
             $stage->setEmail($faker->email());
             $stage->setEntreprise($entreprises[$faker->numberBetween($min=0,$max=count($entreprises)-1)]);
-            for($i=0;$i<$maxFormation;$i++)
+            for($j=0;$j<$maxFormation;$j++)
             {
-                $stage->addFormation($formations[$faker->numberBetween($min=0,$max=count($formations)-1)]);
+                $formation = $faker->unique->numberBetween($min=0,$max=4);
+                $stage->addFormation($formations[$formation]);
             }
+            $faker->unique($reset = true);
             $manager->persist($stage);
         }
 
