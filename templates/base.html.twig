@@ -21,12 +21,12 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container-fluid">
 
         <div class="row">
         {% block logo %}
             <div class="col-12">
-                <center><a href="{{path('pro_stages_accueil')}}"><img src="{{ asset('/Logo/logo_small.png') }}"></a></center>
+                <a href="{{path('pro_stages_accueil')}}"><img src="{{ asset('/Logo/logo_small.png') }}"></a>
             </div>
         {% endblock %}
         </div>
@@ -34,10 +34,10 @@
         <div class="row">
         {% block nav %}
             <div class="col-4">
-                <center><a href="{{path('pro_stages_entreprises')}}">Tri par entreprises</a></center>
+                <a href="{{path('pro_stages_entreprises')}}">Tri par entreprise</a>
             </div>
             <div class="col-4 offset-md-4">
-                <center><a href="{{path('pro_stages_formations')}}">Tri par formations</a></center>
+                <a href="{{path('pro_stages_formations')}}">Tri par formation</a>
             </div>
         {% endblock %}
         </div>
@@ -50,10 +50,13 @@
         {% endblock %}
         </div>
 
-        <div class="row">
+        <div class="row" style="background:#ead017;">
         {% block footer %}
-            <div class="col-12" style="background:#ead017;">
-                <p>©Abdelhak Yanis</p> <p>Dut Informatique 2021-2022</p>
+            <div class="col-4">
+                <p>© Abdelhak Yanis</p>
+            </div>
+            <div class="col-4 offset-md-4">
+                <p>Dut Informatique 2021-2022</p>
             </div>
         {% endblock %}
         </div>
