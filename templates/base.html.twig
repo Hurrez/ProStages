@@ -25,7 +25,7 @@
 
         <div class="row">
         {% block logo %}
-            <div class="col-12">
+            <div class="col-md-12">
                 <a href="{{path('pro_stages_accueil')}}"><img src="{{ asset('/Logo/logo_small.png') }}"></a>
             </div>
         {% endblock %}
@@ -33,10 +33,10 @@
 
         <div class="row">
         {% block nav %}
-            <div class="col-4">
+            <div class="col-md-4 col-xs-12">
                 <a href="{{path('pro_stages_entreprises')}}">Tri par entreprise</a>
             </div>
-            <div class="col-4 offset-md-4">
+            <div class="col-md-4 offset-md-4 col-xs-12">
                 <a href="{{path('pro_stages_formations')}}">Tri par formation</a>
             </div>
         {% endblock %}
@@ -44,7 +44,7 @@
 
         <div class="row">
         {% block body %}
-            <div class="col-12">
+            <div class="col-md-12">
                 <h1>Contenu</h1>
             </div>
         {% endblock %}
@@ -52,10 +52,10 @@
 
         <div class="row" style="background:#ead017;">
         {% block footer %}
-            <div class="col-4">
+            <div class="col-md-4 col-xs-12">
                 <p>© Abdelhak Yanis</p>
             </div>
-            <div class="col-4 offset-md-4">
+            <div class="col-md-4 offset-md-4 col-xs-12">
                 <p>Dut Informatique 2021-2022</p>
             </div>
         {% endblock %}
