@@ -43,7 +43,7 @@ class AppFixtures extends Fixture
 
         //Création stages
         $nombreStages=25;
-        $tableauMetier = array("Développeur","pentester","Stagiaire","Codeur","Algorithmicien","Déchet");
+        $tableauMetier = array("Développeur","Pentester","Stagiaire","Codeur","Algorithmicien","Déchet");
         $tableauLangage = array("C++","java","C","HTML","PHP","Symfony","Base de données","Reseau","Java script");
         for($i=0;$i<$nombreStages;$i++)
         {

@@ -3,7 +3,7 @@
 {% block body %}
     <center><h1>Vous êtes sur les {{ controller_name }} ! </h1></center>
 
-    <table class="table table-Secondary table-striped">
+    <table class="table table-bordered border-dark table-Secondary table-striped">
         <thead>
             <tr>
                 <div class="row">
@@ -40,7 +40,6 @@
                                 <a href="{{path('pro_stages_formation_stage',{idF:formation.id,idS:stage.id})}}">{{stage.titre}}</a>
                             </td>
                         </div>
-                        
                         <div class="col-md-4 col-xs-12">
                             <td>
                                 {{stage.entreprise.nom}}
@@ -49,7 +48,10 @@
                         <div class="col-md-4 col-xs-12">
                             <td>
                                 {% for formation in stage.formations %}
-                                    |{{formation.nomCourt}}|
+                                    {{formation.nomCourt}}
+                                    {% if not loop.last %}
+                                        et
+                                    {% endif %}
                                 {% endfor %}
                             </td>
                         </div>

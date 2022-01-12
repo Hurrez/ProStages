@@ -4,13 +4,13 @@
 {% block body %}
     <center><h1>Vous êtes sur la {{ controller_name }} ! </h1></center>
 
-    <table class="table table-Secondary table-striped">
+    <table class="table table-bordered border-dark table-Secondary table-striped">
         <tbody>
             <tr>
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
                          <td>
-                            <h4> Titre : </h4>
+                            <h4> Titre </h4>
                         </td>
                     </div>
                     <div class="col-md-6 col-xs-12">
@@ -24,7 +24,7 @@
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
                          <td>
-                            <h4> Mission : </h4>
+                            <h4> Mission </h4>
                         </td>
                     </div>
                     <div class="col-md-6 col-xs-12">
@@ -38,7 +38,7 @@
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
                          <td>
-                            <h4> Email : </h4>
+                            <h4> Email </h4>
                         </td>
                     </div>
                     <div class="col-md-6 col-xs-12">
@@ -52,7 +52,7 @@
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
                          <td>
-                            <h4> Entreprise : </h4>
+                            <h4> Entreprise </h4>
                         </td>
                     </div>
                     <div class="col-md-6 col-xs-12">
@@ -66,13 +66,16 @@
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
                          <td>
-                            <h4> Formations : </h4>
+                            <h4> Formations </h4>
                         </td>
                     </div>
                     <div class="col-md-6 col-xs-12">
                         <td>
                             {% for formation in stage.formations %}
-                                |{{formation.nomLong}}|
+                                    {{formation.nomLong}}
+                                    {% if not loop.last %}
+                                        et
+                                    {% endif %}
                             {% endfor %}
                         </td>
                     </div>

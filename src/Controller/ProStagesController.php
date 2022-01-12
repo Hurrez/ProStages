@@ -28,7 +28,7 @@ class ProStagesController extends AbstractController
     {
         $repositoryStage=$this->getDoctrine()->getRepository(Stage::class);
         $stage=$repositoryStage->find($id);
-		    return $this->render('pro_stages/stages.html.twig',['controller_name'=>'page du stage :'.$id,'stage'=>$stage,]);
+		    return $this->render('pro_stages/stages.html.twig',['controller_name'=>'page du stage : '.$id,'stage'=>$stage,]);
     }
 
 	  /**
