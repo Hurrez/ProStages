@@ -3,29 +3,53 @@
 
 {% block body %}
     <center><h1>Bonjour vous êtes sur la {{ controller_name }} ! </h1></center>
-    {% for stage in stages %}
-        <tr>
-            <div class="row">
-                <div class="col-md-4 col-xs-12">
-                    <td>
-                        <a href="{{path('pro_stages_stage',{id:stage.id})}}"><p>{{stage.titre}}</p></a>
-                    </td>
+    
+    <table class="table table-warning table-striped">
+        <thead>
+            <tr>
+                <div class="row">
+                    <div class="col-md-4 col-xs-12">
+                        <td>
+                            <h2> Titre </h2>
+                        </td>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <td>
+                            <h2> Nom de l'entreprise </h2>
+                        </td>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <td>
+                            <h2>Formations</h2>
+                        </td>
+                    </div>
                 </div>
-                
-                <div class="col-md-4 col-xs-12">
-                    <td>
-                        <p>{{stage.entreprise.nom}}</p>
-                    </td>
-                </div>
+            </tr>
+        </thead>
+        {% for stage in stages %}
+            <tbody>
+                <tr>
+                    <div class="row">
+                        <div class="col-md-4 col-xs-12">
+                            <td>
+                                <a href="{{path('pro_stages_stage',{id:stage.id})}}"><p>{{stage.titre}}</p></a>
+                            </td>
+                        </div>
+                        
+                        <div class="col-md-4 col-xs-12">
+                            <td>{{stage.entreprise.nom}}</td>
+                        </div>
 
-                <div class="col-md-4 col-xs-12">
-                    <td>
-                        {% for formation in stage.formations %}
-                            |{{formation.nomCourt}}|
-                        {% endfor %}
-                    </td>
-                </div>
-            </div>
-        </tr>
-    {% endfor %}
+                        <div class="col-md-4 col-xs-12">
+                            <td>
+                                {% for formation in stage.formations %}
+                                    |{{formation.nomCourt}}|
+                                {% endfor %}
+                            </td>
+                        </div>
+                    </div>
+                </tr>
+            </tbody>    
+        {% endfor %}
+    </table>
 {% endblock %}
