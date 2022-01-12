@@ -48,7 +48,7 @@ class ProStagesController extends AbstractController
     {
 		    $repositoryEntreprise=$this->getDoctrine()->getRepository(Entreprise::class);
         $entreprise=$repositoryEntreprise->find($id);
-        return $this->render('pro_stages/entreprises_trie.html.twig',['controller_name'=>'stage de l\'entreprise : '.$id,'entreprise'=>$entreprise]);
+        return $this->render('pro_stages/entreprises_trie.html.twig',['controller_name'=>'stages de l\'entreprise : '.$id,'entreprise'=>$entreprise]);
     }
 	
     /**
@@ -78,7 +78,7 @@ class ProStagesController extends AbstractController
     {
       $repositoryFormation=$this->getDoctrine()->getRepository(Formation::class);
       $formation=$repositoryFormation->find($id);
-	  	return $this->render('pro_stages/formations_trie.html.twig',['controller_name'=>'stage de formations : '.$id,'formation'=>$formation]);
+	  	return $this->render('pro_stages/formations_trie.html.twig',['controller_name'=>'stages de la formations : '.$id,'formation'=>$formation]);
     }
 	
 	  /**

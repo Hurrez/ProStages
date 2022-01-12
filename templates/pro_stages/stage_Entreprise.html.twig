@@ -10,4 +10,31 @@
             <h1> Entreprise : {{ stage.entreprise.nom }} </h1>
         </body>
     </html>
+
+
+    <table class="table table-Secondary table-striped">
+        <tbody>
+            <tr>
+                <div class="row">
+                    <div class="col-md-4 col-xs-12">
+                         <td>
+                            <a href="{{path('pro_stages_formation_stage',{idF:formation.id,idS:stage.id})}}">{{stage.titre}}</a>
+                        </td>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <td>
+                            {{stage.entreprise.nom}}
+                        </td>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <td>
+                            {% for formation in stage.formations %}
+                                |{{formation.nomCourt}}|
+                            {% endfor %}
+                        </td>
+                    </div>
+                </div>
+            </tr>
+        </tbody>    
+    </table>
 {% endblock %}

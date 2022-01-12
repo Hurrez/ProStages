@@ -57,6 +57,7 @@ class AppFixtures extends Fixture
                 $stage->addFormation($formations[$formation]);
             }
             $faker->unique($reset = true);
+            
             $manager->persist($stage);
         }
 

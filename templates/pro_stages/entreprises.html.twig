@@ -2,10 +2,62 @@
 
 
 {% block body %}
-    {% for entreprise in entreprises %}
-        {% if entreprise.stages|length != NULL %}
-            <a href="{{path('pro_stages_entreprises_trie',{id:entreprise.id})}}"><p>{{entreprise.nom}}</p></a>
-            <br>
-        {% endif %}
-    {% endfor %}
+    <center><h1>Vous êtes sur la {{ controller_name }} ! </h1></center>
+
+    <table class="table table-Secondary table-striped">
+        <thead>
+            <tr>
+                <div class="row">
+                    <div class="col-md-4 col-xs-12">
+                        <td>
+                            <h2> 
+                                Nom de l'entreprise 
+                            </h2>
+                        </td>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <td>
+                            <h2> 
+                                Adresse 
+                            </h2>
+                        </td>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <td>
+                            <h2> 
+                                Activite 
+                            </h2>
+                        </td>
+                    </div>
+                </div>
+            </tr>
+        </thead>
+        {% for entreprise in entreprises %}
+            {% if entreprise.stages|length != NULL %}
+                <tbody>
+                    <tr>
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12">
+                                <td>
+                                    <a href="{{path('pro_stages_entreprises_trie',{id:entreprise.id})}}">{{entreprise.nom}}</a>
+                                </td>
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-12">
+                                <td>
+                                    {{entreprise.adresse}}
+                                </td>
+                            </div>
+
+                            <div class="col-md-4 col-xs-12">
+                                <td>
+                                    {{entreprise.activite}}
+                                </td>
+                            </div>
+                        </div>
+                    </tr>
+                </tbody>    
+            {% endif %}
+        {% endfor %}
+    </table>
 {% endblock %}

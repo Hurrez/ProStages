@@ -2,10 +2,61 @@
 
 
 {% block body %}
-    {% for stage in entreprise.stages %}
-         <a href="{{path('pro_stages_entreprise_stage',{idE:entreprise.id,idS:stage.id})}}"><p>{{stage.titre}}</p></a>
-        <br>
-    {% else %}
-        <center><h1> Pas de stage </h1></center>
-    {% endfor %}
+    <center><h1>Vous êtes sur les {{ controller_name }} ! </h1></center>
+
+    <table class="table table-Secondary table-striped">
+        <thead>
+            <tr>
+                <div class="row">
+                    <div class="col-md-4 col-xs-12">
+                        <td>
+                            <h2> 
+                                Titre 
+                            </h2>
+                        </td>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <td>
+                            <h2> 
+                                Nom de l'entreprise 
+                            </h2>
+                        </td>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <td>
+                            <h2>
+                                Formations
+                            </h2>
+                        </td>
+                    </div>
+                </div>
+            </tr>
+        </thead>
+        {% for stage in entreprise.stages %}
+            <tbody>
+                <tr>
+                    <div class="row">
+                        <div class="col-md-4 col-xs-12">
+                            <td>
+                                <a href="{{path('pro_stages_entreprise_stage',{idE:entreprise.id,idS:stage.id})}}">{{stage.titre}}</a>
+                            </td>
+                        </div>
+                        
+                        <div class="col-md-4 col-xs-12">
+                            <td>
+                                {{stage.entreprise.nom}}
+                            </td>
+                        </div>
+                        <div class="col-md-4 col-xs-12">
+                            <td>
+                                {% for formation in stage.formations %}
+                                    |{{formation.nomCourt}}|
+                                {% endfor %}
+                            </td>
+                        </div>
+                    </div>
+                </tr>
+            </tbody>    
+        {% endfor %}
+    </table>
 {% endblock %}

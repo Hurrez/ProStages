@@ -1,8 +1,48 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% for formation in formations %}
-        <a href="{{path('pro_stages_formations_trie',{id:formation.id})}}"><p>{{formation.nomLong}}</p></a>
-        <br>
-    {% endfor %}
+    <center><h1>Vous êtes sur la {{ controller_name }} ! </h1></center>
+
+    <table class="table table-Secondary table-striped">
+        <thead>
+            <tr>
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                        <td>
+                            <h2> 
+                                Nom long
+                            </h2>
+                        </td>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <td>
+                            <h2> 
+                                Nom court 
+                            </h2>
+                        </td>
+                    </div>
+                </div>
+            </tr>
+        </thead>
+        {% for formation in formations %}
+            <tbody>
+                <tr>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                            <td>
+                                <a href="{{path('pro_stages_formations_trie',{id:formation.id})}}">{{formation.nomLong}}</a>
+                            </td>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <td>
+                                {{formation.nomCourt}}
+                            </td>
+                         </div>
+                    </div>
+                </tr>
+            </tbody>    
+        {% endfor %}
+    </table>
 {% endblock %}
+
+
