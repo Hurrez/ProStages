@@ -14,11 +14,11 @@ class AppFixtures extends Fixture
     {
         //Création d'un générateur de données faker
         $faker = \Faker\Factory::create('fr_FR');
-        $tableauFormationsLong = array("DUT Informatique","DUT Gestion Entreprise Administration","Licence Prog Avancée","BTS Electronique","Licence Pro Numérique");
-        $tableauFormationsCourt = array("Info","GEA","Prog Avancée","Electronique","LP Num");
-
+       
         //Création formations
         $nombreFormations=5;
+        $tableauFormationsLong = array("DUT Informatique","DUT Gestion Entreprise Administration","Licence Prog Avancée","BTS Electronique","Licence Pro Numérique");
+        $tableauFormationsCourt = array("Info","GEA","Prog Avancée","Electronique","LP Num");
         for ($i=0;$i<$nombreFormations;$i++)
         {
             $formation = new Formation();
@@ -43,11 +43,13 @@ class AppFixtures extends Fixture
 
         //Création stages
         $nombreStages=25;
+        $tableauMetier = array("Développeur","pentester","Stagiaire","Codeur","Algorithmicien","Déchet");
+        $tableauLangage = array("C++","java","C","HTML","PHP","Symfony","Base de données","Reseau","Java script");
         for($i=0;$i<$nombreStages;$i++)
         {
             $maxFormation = $faker->numberBetween($min=1,$max=3);
             $stage = new Stage();
-            $stage->setTitre($faker->realText($maxNbChars=25,$indexSize=2));
+            $stage->setTitre($tableauMetier[($faker->numberBetween($min=0,$max=count($tableauMetier)-1))]." en ".$tableauLangage[($faker->numberBetween($min=0,$max=count($tableauLangage)-1))]);
             $stage->setMission($faker->realText($maxNbChars=150,$indexSize=2));
             $stage->setEmail($faker->email());
             $stage->setEntreprise($entreprises[$faker->numberBetween($min=0,$max=count($entreprises)-1)]);
