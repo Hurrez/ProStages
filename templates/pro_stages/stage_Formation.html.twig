@@ -1,12 +1,82 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <html>
-        <body>
-            <h1> Titre : {{ stage.titre }} </h1>
-            <h1> Mission :  {{ stage.mission }} </h1>
-            <h1> Email : {{ stage.email }} </h1>
-            <h1> Entreprise : {{ stage.entreprise.nom }} </h1>
-        </body>
-    </html>
+    <center><h1>Vous êtes sur la {{ controller_name }} ! </h1></center>
+
+    <table class="table table-Secondary table-striped">
+        <tbody>
+            <tr>
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                         <td>
+                            Titre :
+                        </td>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <td>
+                            {{ stage.titre }}
+                        </td>
+                    </div>
+                </div>
+            </tr>
+            <tr>
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                         <td>
+                            Mission :
+                        </td>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <td>
+                            {{ stage.mission }}
+                        </td>
+                    </div>
+                </div>
+            </tr>
+            <tr>
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                         <td>
+                            Email :
+                        </td>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <td>
+                            {{ stage.email }}
+                        </td>
+                    </div>
+                </div>
+            </tr>
+            <tr>
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                         <td>
+                            Entreprise :
+                        </td>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <td>
+                            {{ stage.entreprise.nom }}
+                        </td>
+                    </div>
+                </div>
+            </tr>
+            <tr>
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                         <td>
+                            Formations :
+                        </td>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <td>
+                            {% for formation in stage.formations %}
+                                |{{formation.nomLong}}|
+                            {% endfor %}
+                        </td>
+                    </div>
+                </div>
+            </tr>
+        </tbody>    
+    </table>
 {% endblock %}
