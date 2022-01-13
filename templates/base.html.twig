@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Bloc du Titre -->
     <title>
       {% block title %} 
         ProStages
@@ -23,6 +24,7 @@
   <body>
     <div class="container-fluid">
 
+        <!-- Bloc du logo -->
         <div class="row">
         {% block logo %}
             <div class="col-md-12">
@@ -31,6 +33,7 @@
         {% endblock %}
         </div>
 
+        <!-- Bloc du menu de navigation -->
         <div class="row">
         {% block nav %}
             <div class="col-md-4 col-xs-12">
@@ -42,6 +45,7 @@
         {% endblock %}
         </div>
 
+        <!-- Bloc du BODY -->
         <div class="row">
         {% block body %}
             <div class="col-md-12">
@@ -50,6 +54,7 @@
         {% endblock %}
         </div>
 
+        <!-- Bloc du pied de page -->
         <div class="row" style="background:#ead017;">
         {% block footer %}
             <div class="col-md-4 col-xs-12">
